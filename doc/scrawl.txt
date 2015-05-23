@@ -1,0 +1,137 @@
+*scrawl.txt*  customizable scratch buffer
+
+                   _________                           __   ~
+                  /   _____/ ________________ __  _  _|  |  ~
+                  \_____  \_/ ___\_  __ \__  \\ \/ \/ /  |  ~
+                  /        \  \___|  | \// __ \\     /|  |__~
+                 /_______  /\___  >__|  (____  /\/\_/ |____/~
+                         \/     \/           \/             ~
+
+                              Referance Manual~
+
++----------------------------------------------------------------------------+~
+CONTENTS                                                       *ScrawlContents*
+
+    Introduction...................................|Scrawl|
+    Commands.......................................|ScrawlCommands|
+    Options........................................|ScrawlOptions|
+    About..........................................|ScrawlAbout|
+    Credits........................................|ScrawlCredits|
+    Changelog......................................|ScrawlChangelog|
+    License........................................|ScrawlLicense|
+
++----------------------------------------------------------------------------+~
+INTRO                                                                  *Scrawl*
+
+Scrawl is a customizable scratch buffer for writing notes and for testing
+small snippets of code.  Scrawl buffers are per tab, so the contents of a
+scrawl buffer in one tab will not be the same as the scratch buffer in another
+tab.
+
++----------------------------------------------------------------------------+~
+COMMANDS                                                       *ScrawlCommands*
+
+:ScrawlBuffer                                                   *:ScrawlBuffer*
+    Opens Scrawl in the current buffer.  If Scrawl is already open in the
+    current tab, it will switch to it instead.
+
+:ScrawlSplit                                                     *:ScrawlSplit*
+    Opens Scrawl in a new split.  If Scrawl is already open in the current
+    tab, it will switch to it instead.  The direction of the split can be
+    changed with |g:scrawl_split_direction|.
+
+:ScrawlClose                                                     *:ScrawlClose*
+    Closes Scrawl if it exists in the current tab.  If the Scrawl buffer was
+    opened using |:ScrawlSplit|, it will close that split.  If it was opened
+    using |:ScrawlBuffer|, it will close the Scrawl buffer and return to editing
+    the file that existed in that window previously.
+
+:ScrawlSplitToggle                                         *:ScrawlSplitToggle*
+    Opens Scrawl in a new split if there isn't already a Scrawl window, and
+    closes it if it does exist.  However, if that Scrawl buffer was last
+    opened using |:ScrawlBuffer|, it will return to editing the file that
+    existed in that window previously.
+
+:ScrawlBufferToggle                                       *:ScrawlBufferToggle*
+    Opens Scrawl in the current buffer if it isn't already a Scrawl window, and
+    returns to editing the previous file in that window if it does exists.
+    However, if that Scrawl buffer was last opened using |:ScrawlSplit|, it will
+    close that window.
+
++----------------------------------------------------------------------------+~
+OPTIONS                                                         *ScrawlOptions*
+
+This script provides the following options for customizing the Scrawl buffer.
+These options should be set in your vimrc.
+
+                                                              *'loaded_scrawl'*
+If you really hate this plugin, and you don't want to uninstall it for
+whatever reason, you can turn it off with this line in your vimrc: >
+    let g:loaded_scrawl=1
+<
+#----------------------------------------------------------------------------#~
+                                                       *'g:scrawl_buffer_name'*
+Values: Any string.
+Default: __Scrawl__
+
+Sets the title used for the Scrawl buffer. The associated tab page number in
+parentheses will appended to the end of this string.
+
+#----------------------------------------------------------------------------#~
+                                                          *'g:scrawl_filetype'*
+Values: Any filetype.
+Default: text
+
+Sets the filetype for the scrawl buffer.
+
+#----------------------------------------------------------------------------#~
+                                                   *'g:scrawl_split_direction'*
+Values: Integer from 0 to 3.
+Default: 0
+
+Sets the split direction used in |:ScrawlSplit| and |:ScrawlSplitToggle|.  '0'
+splits upwards, '1' splits downwards, '2' splits to the left, and '3' splits
+to the right.
+
+#----------------------------------------------------------------------------#~
+                                                       *'g:scrawl_window_size'*
+Values: Any non-negative integer.
+Default: 0 
+
+Sets the default window height/width used in |:ScrawlSplit| and
+|:ScrawlSplitToggle|.  If |g:scrawl_split_direction| is '0' or '1', it is used
+for the height of the split.  If the split direction is '2' or '3', it is used
+for the width.  Setting this to 0 will use whatever the defualt behaviour is to
+set the split height/width.
+
+#----------------------------------------------------------------------------#~
+ABOUT                                                             *ScrawlAbout*
+
+The author of Scrawl is an Evergreen Tree who lives in a forest somewhere in
+the U.S.A.
+
+The stable versions are available at
+    {insert vim(dot)org link here}
+
+The development versions are available on github
+    https://github.com/4Evergreen4/vim-scrawl
+
++----------------------------------------------------------------------------+~
+CREDITS                                                         *ScrawlCredits*
+
+Most of the inspiration for this plugin came from scratch.vim, which was
+written by Yegappan Lakshmanan.  It can be found on vim.org at
+    http://www.vim.org/scripts/script.php?script_id=664
+
++----------------------------------------------------------------------------+~
+CHANGELOG                                                     *ScrawlChangelog*
+
+1.0.0
+    - Initial release
+
++----------------------------------------------------------------------------+~
+LICENSE                                                         *ScrawlLicense*
+
+Scrawl is released under the same license as vim itself. See ':help license'.
+
+ vim:tw=78:ts=2:sw=2:sts=2:ft=help:norl:
